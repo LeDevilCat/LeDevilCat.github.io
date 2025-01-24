@@ -1,49 +1,10 @@
 @import url("https://use.typekit.net/yup4bjk.css");
 
+
 html, body {
     height: 100%;
     margin: 0;
     scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-body {
-    font-family: neue-haas-unica, arial, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    background-color: #1a0030;
-    background-image: url("TAUSTA/4K-Wallpaper.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    background: url(TAUSTA/1920x1080_\(blue\)_wallpaper.jpg) hsla(360 0% 0% / 0.5);
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-header h1 {
-    font-size: 100px;
-    margin: 0;
-}
-
-header h2 {
-    font-size: 50px;
-    margin: 0;
 }
 
 header, .profile, .Skill-Info, .contacting {
@@ -75,20 +36,6 @@ header, .profile, .Skill-Info, .contacting {
 #navbar.visible {
     visibility: visible; /* Make visible */
     opacity: 1; /* Fully opaque */
-}
-
-nav a {
-    color: #ffdca5;
-    text-decoration: none;
-    font-size: 1.5em;
-    padding: 10px;
-}
-
-nav a:hover {
-    color: #82c8f0;
-    text-shadow: #82c8f0 0 0 10px;
-    background-blend-mode: multiply;
-    transition-duration: 0.33s;
 }
 
 main {
