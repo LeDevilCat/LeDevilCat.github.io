@@ -18,7 +18,7 @@ header {
     text-align: center;
     background-color: #f4f4f4;
     padding: 1rem;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #ffdca5;
 }
 
 h1 {
@@ -28,12 +28,26 @@ h1 {
 .gallery {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 columns */
-    gap: 1rem; /* Spacing between items */
+    gap: 1.5rem; /* Spacing between items */
     padding: 1rem;
 }
 
+/* Näytöille, joiden leveys on alle 800px: 3 saraketta */
+@media (max-width: 800px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Näytöille, joiden leveys on alle 500px: 2 saraketta */
+@media (max-width: 500px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .gallery-item {
-    border: 1px solid #ddd;
+    border: 2px solid #ffdca5;
     border-radius: 5px;
     padding: 0.5rem;
     text-align: center;

@@ -68,3 +68,43 @@ nav a:hover {
     transition-duration: 0.33s;
 }
 
+footer {
+    width: 100%; /* Full width */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    height: 200px;
+    background-color: #333;
+    background-image: url("TAUSTA/1920x1080_\(black\)_wallpaper.jpg");
+    background-position: bottom;
+    background-size: cover;
+    color: #fff;
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+footer a {
+    margin: 0 10px; /* Add horizontal margin to space out the links */
+    color: #fff; 
+    text-decoration: none;
+    font-size: 2.3em;
+    transition: transform 0.33s;
+}
+
+footer a:hover {
+    transform: scale(1.3);
+}
+
+footer p {
+    margin: auto;
+    color: #fff; 
+    font-size: 1em; 
+}
+

@@ -21,76 +21,19 @@ header, .profile, .Skill-Info, .contacting {
     display: flex;
     justify-content: space-evenly;
     overflow: hidden;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     background-image: url("TAUSTA/1920x1080_\(blue\)_wallpaper.jpg");
     background-size: cover;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
-    visibility: hidden; /* Initially hidden */
-    opacity: 0; /* Initially transparent */
-    transition: visibility 0s, opacity 0.5s ease; /* Ensure smooth transition */
     z-index: 1000; /* Keep it above other content */
-}
-
-#navbar.visible {
-    visibility: visible; /* Make visible */
-    opacity: 1; /* Fully opaque */
 }
 
 main {
     scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
     overflow-y: scroll; /* Enable vertical scrolling */
     height: 100vh; /* Full viewport height */
-}
-
-footer {
-    width: 100%; /* Full width */
-    position: fixed; /* Stick to the bottom */
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #333;
-    background-image: url("TAUSTA/1920x1080_\(black\)_wallpaper.jpg");
-    background-position: bottom;
-    background-size: cover;
-    color: #fff;
-    visibility: hidden; /* Initially hidden */
-    opacity: 0; /* Initially transparent */
-    transition: visibility 0s, opacity 0.5s ease; /* Smooth transition */
-}
-
-footer.visible {
-    visibility: visible; /* Make visible */
-    opacity: 1; /* Fully opaque */
-}
-
-footer .footer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px; 
-}
-
-footer a {
-    margin: 0 10px; /* Add horizontal margin to space out the links */
-    color: #fff; 
-    text-decoration: none;
-    font-size: 2.3em;
-    transition: transform 0.33s;
-}
-
-footer a:hover {
-    transform: scale(1.3);
-}
-
-footer p {
-    margin: 0 15px;
-    color: #fff; 
-    font-size: 1em; 
 }
 
 h1, h2, h3 {
@@ -211,7 +154,7 @@ h3 {
     text-align: center;
 }
 
-.contacting {
+.contacting div{
     max-width: 40%;
     margin: auto;
 }
