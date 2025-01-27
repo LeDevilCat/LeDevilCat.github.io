@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yhteydenotto</title>
+    <link rel="stylesheet" href="Common-Styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header>
+        <h1>Yhteydenotto</h1>
+    </header>
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <!-- <a href="IT-Projektit.html">IT-Projektit</a> -->
+        <a href="Mediaprojektit.html">Mediaportfolio</a>
+        <a href="Piirrokset.html">Harrastetaide</a>
+        <a href="yhteystiedot.html">Yhteystiedot</a>
+    </nav>
+    <main>
+        <section>
+            <h2>Ota yhteyttä lomakkeella</h2>
+            <form action="send_email.php" method="post" enctype="text/plain">
+                <label for="name">Nimi:</label><br>
+                <input type="text" id="name" name="name" placeholder="Kirjoita nimesi" required><br><br>
+        
+                <label for="email">Sähköposti:</label><br>
+                <input type="email" id="email" name="email" placeholder="esimerkki@domain.com" required><br><br>
+        
+                <label for="message">Viesti:</label><br>
+                <textarea id="message" name="message" placeholder="Kirjoita viestisi tähän" rows="5" required></textarea><br><br>
+        
+                <button type="submit">Lähetä</button>
+            </form>
+        </section>
+        <section class="contact-info">
+            <h2>Yhteystiedot</h2>
+            <p>Voit ottaa minuun yhteyttä alla olevilla tiedoilla:</p>
+            <table class="contact-table">
+                <tr>
+                    <th>Nimi</th>
+                    <td>Jyri Nieminen</td>
+                </tr>
+                <tr>
+                    <th>Sähköposti</th>
+                    <td><a href="mailto:nieminen.jyri.j@gmail.com">nieminen.jyri.j@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <th>Puhelinnumero</th>
+                    <td><a href="tel:+358401234567">+358 40 123 4567</a></td>
+                </tr>
+                <tr>
+                    <th>Osoite</th>
+                    <td>Tampere, Suomi</td>
+                </tr>
+                <tr>
+                    <th>LinkedIn</th>
+                    <td><a href="https://www.linkedin.com/in/jani-nieminen" target="_blank">linkedin.com/in/jyri-nieminen</a></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/niejyr"><span class="fa-brands fa-square-github"></span></a>
+            <a href="mailto:nieminen.jyri.j@gmail.com"><span class="fa-solid fa-envelope"></span></a>
+            <a href="https://www.linkedin.com/in/jyri-nieminen/"><span class="fa-brands fa-linkedin"></span></a>
+        </div>
+        <p>&copy; 2025 Jyri Nieminen</p>
+    </footer>
+</body>
+</html>
