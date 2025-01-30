@@ -68,7 +68,6 @@ h1 {
     color: #555;
 }
 
-
 /* modal */
 .modal {
     display: none;
@@ -92,11 +91,11 @@ h1 {
 }
 
 /*modal close button*/
-.colse{
+.close{
     position: absolute;
     top: 25px;
     right: 25px;
-    font-size: 40px;
+    font-size: 3em;
     color: #fff;
     cursor: pointer;
 }
