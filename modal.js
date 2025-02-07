@@ -1,4 +1,4 @@
-// 1. Select the HTML elements we need
+    // 1. Select the HTML elements we need
 const modal = document.getElementById("imageModal");  // Modal window
 const modalImg = document.getElementById("modalImage");  // Image inside the modal
 const captionText = document.getElementById("caption");  // Caption text
@@ -10,8 +10,8 @@ const images = document.querySelectorAll(".gallery-item img");
 // 3. Add an event listener to each image
 images.forEach(img => {
     img.addEventListener("click", function() {
-        modal.style.display = "flex";  // Show the modal window
         modalImg.src = this.src;  // Set the modal image source to the clicked image source
+        modal.style.display = "flex";  // Show the modal window
         captionText.textContent = this.alt;  // Show the image alt text as the caption
     });
 });
