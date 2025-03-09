@@ -32,19 +32,6 @@ h1 {
     padding: 1rem;
 }
 
-/* Näytöille, joiden leveys on alle 800px: 3 saraketta */
-@media (max-width: 800px) {
-    .gallery {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Näytöille, joiden leveys on alle 500px: 2 saraketta */
-@media (max-width: 500px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 .gallery-item {
     border: 2px solid #ffdca5;
@@ -53,10 +40,13 @@ h1 {
     text-align: center;
 }
 
+/* Ensure gallery images appear as square thumbnails */
 .gallery-item img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 5px;
+    width: 100%; /* Ensures images adapt to container width */
+    aspect-ratio: 1 / 1; /* Forces images to be square */
+    object-fit: cover; /* Ensures images fill the square without stretching */
+    display: block; /* Removes extra space below images */
+    border-radius: 5px; /* Optional rounded corners */
 }
 
 .gallery-item h2 {
@@ -85,8 +75,10 @@ h1 {
 
 /*modal image*/
 .modal-content {
-    max-width: 85%;
-    max-height: 85%;
+    width: auto;  /* Keeps original aspect ratio */
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Prevent cropping */
     border-radius: 5px;
 }
 
@@ -106,4 +98,22 @@ h1 {
     font-size: 1.2rem;
     text-align: center;
     margin-top: 10px;
+}
+
+
+
+
+
+/* Näytöille, joiden leveys on alle 800px: 3 saraketta */
+@media (max-width: 800px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Näytöille, joiden leveys on alle 500px: 2 saraketta */
+@media (max-width: 500px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
