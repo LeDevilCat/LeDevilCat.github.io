@@ -1,29 +1,72 @@
-    // 1. Select the HTML elements we need
-const modal = document.getElementById("imageModal");  // Modal window
-const modalImg = document.getElementById("modalImage");  // Image inside the modal
-const captionText = document.getElementById("caption");  // Caption text
-const closeBtn = document.querySelector(".close");  // Close button
+// Get modal elements
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const modalIframe = document.createElement("iframe"); // Create iframe element
+modalIframe.style.display = "none"; // Initially hide the iframe
+modalIframe.setAttribute("allowfullscreen", ""); // Allow fullscreen for videos
+modal.appendChild(modalIframe); // Append iframe to modal
+const captionText = document.getElementById("caption");
+const closeBtn = document.querySelector(".close");
+const prevBtn = document.getElementById("prevImage");
+const nextBtn = document.getElementById("nextImage");
 
-// 2. Find all images in the gallery
-const images = document.querySelectorAll(".gallery-item img");
+// Store images for browsing
+let currentImages = [];
+let currentIndex = 0;
 
-// 3. Add an event listener to each image
-images.forEach(img => {
+// Handle clicking on gallery images
+document.querySelectorAll(".gallery-item img").forEach(img => {
     img.addEventListener("click", function() {
-        modalImg.src = this.src;  // Set the modal image source to the clicked image source
-        modal.style.display = "flex";  // Show the modal window
-        captionText.textContent = this.alt;  // Show the image alt text as the caption
+        // Get parent div and extract images
+        let parent = this.closest(".gallery-item");
+        currentImages = parent.dataset.images.split(",").map(image => image.trim()); // Split and remove spaces
+        currentIndex = currentImages.indexOf(this.dataset.src); // Set current index to the clicked image
+
+        // Show modal with first image
+        modal.style.display = "flex";
+        showContent(this.dataset.type, this.dataset.src);
+        captionText.textContent = this.alt;
     });
 });
 
-// 4. Close the modal when the X button is clicked
-closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";  // Hide the modal
+// Function to show content based on type
+function showContent(type, src) {
+    if (type === "video") {
+        modalImg.style.display = "none"; // Hide image
+        modalIframe.style.display = "block"; // Show iframe
+        modalIframe.src = src; // Set iframe source
+    } else {
+        modalImg.style.display = "block"; // Show image
+        modalIframe.style.display = "none"; // Hide iframe
+        modalImg.src = src; // Set image source
+    }
+}
+
+// Navigate to previous image
+prevBtn.addEventListener("click", function() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        showContentFromCurrentIndex();
+    }
 });
 
-// 5. Close the modal when the user clicks outside the modal
-modal.addEventListener("click", function(event) {
-    if (event.target === modal) {  // If the user clicks the modal background (not the image)
-        modal.style.display = "none";  // Hide the modal
+// Navigate to next image
+nextBtn.addEventListener("click", function() {
+    if (currentIndex < currentImages.length - 1) {
+        currentIndex++;
+        showContentFromCurrentIndex();
     }
+});
+
+// Function to show content from current index
+function showContentFromCurrentIndex() {
+    const currentImage = document.querySelector(`img[data-src="${currentImages[currentIndex]}"]`);
+    showContent(currentImage.dataset.type, currentImages[currentIndex]);
+    captionText.textContent = currentImage.alt;
+}
+
+// Close modal
+closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+    modalIframe.src = ""; // Stop the video when closing the modal
 });
