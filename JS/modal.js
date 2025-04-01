@@ -70,3 +70,5 @@ closeBtn.addEventListener("click", function() {
     modal.style.display = "none";
     modalIframe.src = ""; // Stop the video when closing the modal
 });
+
+console.log("Modal script loaded successfully.");

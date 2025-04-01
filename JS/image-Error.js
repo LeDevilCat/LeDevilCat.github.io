@@ -2,7 +2,7 @@ function ApplyErrorImage() {
     document.querySelectorAll("img").forEach((img) => {
 
         // define the error image
-        const ERRORimg = "PLACEHOLDER_no_image.svg";
+        const ERRORimg = "/PHOTOS/PLACEHOLDER_no_image.svg";
 
         // if no src link is set, set the error image
         if (!img.src || img.src === "" || img.src.includes("undefined")) {
@@ -24,3 +24,5 @@ function ApplyErrorImage() {
 
 // Run when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", ApplyErrorImage);
+
+console.log("Error image script loaded successfully.");

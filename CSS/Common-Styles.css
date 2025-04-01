@@ -13,7 +13,7 @@ body{
     font-style: normal;
     color: white;
     background-color: #1a0030;
-    background-image: url("TAUSTA/4K-Wallpaper.jpg");
+    background-image: url("/PHOTOS/BACKGROUND/4K_Wallpaper.jpg");
     background-attachment: fixed;
     background-size: cover;
 }
@@ -25,7 +25,7 @@ header {
     align-items: center;
     text-align: center;
     height: 100vh;
-    background: url(TAUSTA/1920x1080_\(blue\)_wallpaper.jpg) hsla(360 0% 0% / 0.5);
+    background: url(/PHOTOS/BACKGROUND/1080p_Wallpaper_blue.jpg) hsla(360 0% 0% / 0.5);
     background-blend-mode: multiply;
     background-size: cover;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@ nav{
     position: sticky;
     top: 0;
     width: 100%;
-    background-image: url("TAUSTA/1920x1080_\(blue\)_wallpaper.jpg");
+    background-image: url("/PHOTOS/BACKGROUND/1080p_Wallpaper_blue.jpg");
     background-size: cover;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     z-index: 1000; /* Keep it above other content */
@@ -77,7 +77,7 @@ footer {
     justify-content: center;
     height: 200px;
     background-color: #333;
-    background-image: url("TAUSTA/1920x1080_\(black\)_wallpaper.jpg");
+    background-image: url("/PHOTOS/BACKGROUND/1080p_Wallpaper_black.jpg");
     background-position: bottom;
     background-size: cover;
     color: #fff;
