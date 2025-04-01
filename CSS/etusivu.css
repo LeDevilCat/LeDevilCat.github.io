@@ -24,7 +24,7 @@ header, .profile, .Skill-Info, .contacting {
     position: sticky;
     top: 0;
     width: 100%;
-    background-image: url("PHOTOS/BACKGROUND/1080p_Wallpaper_blue.jpg");
+    background-image: url("/PHOTOS/BACKGROUND/1080p_Wallpaper_blue.jpg");
     background-size: cover;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     z-index: 1000; /* Keep it above other content */
