@@ -25,4 +25,4 @@ function ApplyErrorImage() {
 // Run when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", ApplyErrorImage);
 
-console.log("Error image script loaded successfully.");
+console.log("Script for applying error image loaded successfully.");

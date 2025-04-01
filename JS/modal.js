@@ -16,20 +16,29 @@ let currentIndex = 0;
 
 // Handle clicking on gallery images
 document.querySelectorAll(".gallery-item img").forEach(img => {
-    img.addEventListener("click", function() {
-        // Get parent div and extract images
+    img.addEventListener("click", function () {
         let parent = this.closest(".gallery-item");
-        currentImages = parent.dataset.images.split(",").map(image => image.trim()); // Split and remove spaces
-        currentIndex = currentImages.indexOf(this.dataset.src); // Set current index to the clicked image
 
-        // Show modal with first image
+        // Extract all images from data-images attribute
+        if (parent.dataset.images) {
+            currentImages = parent.dataset.images.split(",").map(image => image.trim());
+        } else {
+            currentImages = [this.dataset.src]; // Fallback to single image
+        }
+
+        currentIndex = currentImages.indexOf(this.dataset.src);
+        if (currentIndex === -1) currentIndex = 0; // Default to first image if not found
+
+        // Show/hide navigation arrows based on image count
+        updateNavigationVisibility();
+
+        // Open modal with first image
         modal.style.display = "flex";
-        showContent(this.dataset.type, this.dataset.src);
-        captionText.textContent = this.alt;
+        showContentFromCurrentIndex();
     });
 });
 
-// Function to show content based on type
+// Function to display content based on type (image/video)
 function showContent(type, src) {
     if (type === "video") {
         modalImg.style.display = "none"; // Hide image
@@ -42,8 +51,30 @@ function showContent(type, src) {
     }
 }
 
+// Function to display current image/video
+function showContentFromCurrentIndex() {
+    if (currentImages.length === 0) return; // Prevent errors if no images exist
+
+    let src = currentImages[currentIndex];
+    let type = src.endsWith(".mp4") || src.endsWith(".webm") ? "video" : "image"; // Determine type by extension
+
+    showContent(type, src);
+    captionText.textContent = `Image ${currentIndex + 1} of ${currentImages.length}`;
+}
+
+// Function to show/hide navigation arrows
+function updateNavigationVisibility() {
+    if (currentImages.length <= 1) {
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+    } else {
+        prevBtn.style.display = "block";
+        nextBtn.style.display = "block";
+    }
+}
+
 // Navigate to previous image
-prevBtn.addEventListener("click", function() {
+prevBtn.addEventListener("click", function () {
     if (currentIndex > 0) {
         currentIndex--;
         showContentFromCurrentIndex();
@@ -51,24 +82,17 @@ prevBtn.addEventListener("click", function() {
 });
 
 // Navigate to next image
-nextBtn.addEventListener("click", function() {
+nextBtn.addEventListener("click", function () {
     if (currentIndex < currentImages.length - 1) {
         currentIndex++;
         showContentFromCurrentIndex();
     }
 });
 
-// Function to show content from current index
-function showContentFromCurrentIndex() {
-    const currentImage = document.querySelector(`img[data-src="${currentImages[currentIndex]}"]`);
-    showContent(currentImage.dataset.type, currentImages[currentIndex]);
-    captionText.textContent = currentImage.alt;
-}
-
 // Close modal
-closeBtn.addEventListener("click", function() {
+closeBtn.addEventListener("click", function () {
     modal.style.display = "none";
-    modalIframe.src = ""; // Stop the video when closing the modal
+    modalIframe.src = ""; // Stop video when closing the modal
 });
 
-console.log("Modal script loaded successfully.");
+console.log("Script for modal functionality loaded successfully.");
